@@ -1,4 +1,4 @@
-# create ssm parameters in AWS console
+# create ssm parameters in AWS management console
 
 resource "aws_ssm_parameter" "ssmparams" {
   count = var.paramlists.length -1
