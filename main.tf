@@ -2,9 +2,9 @@
 
 resource "aws_ssm_parameter" "ssmparams" {
   count = length(var.paramlists)-1
-  name  = var.paramlists[count.index].name
-  type  = var.paramlists[count.index].type
-  value = var.paramlists[count.index].value
+  name  = var.paramlists["name"]
+  type  = var.paramlists["type"]
+  value = var.paramlists["value"]
 }
 
 variable "paramlists" {
