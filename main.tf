@@ -16,6 +16,6 @@ variable "paramlists" {
     }
 }
 
-#output "printvalue" {
-#  value = var.paramlists[var.paramlists[0]].name
-#}
+output "printvalue" {
+  value = var.paramlists[var.paramlists[0]].name
+}
