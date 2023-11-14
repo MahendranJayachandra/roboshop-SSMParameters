@@ -1,5 +1,5 @@
 # create ssm parameters in AWS management console
-
+# I am not able to access the object values through count.
 resource "aws_ssm_parameter" "ssmparams" {
   #count = length(var.paramlists)
   for_each = var.paramlists
@@ -17,6 +17,6 @@ variable "paramlists" {
     }
 }
 
-output "printvalue" {
-  value = var.paramlists["catalogue"].name
-}
+# output "printvalue" {
+#  value = var.paramlists["catalogue"].name
+#}
