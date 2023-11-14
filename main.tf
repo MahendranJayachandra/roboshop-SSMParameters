@@ -3,7 +3,7 @@
 resource "aws_ssm_parameter" "ssmparams" {
   #count = length(var.paramlists)
   for_each = var.paramlists
-  name  = var.paramlists[each.key].name
+  name  = var.paramlists[each.key].name //can also use each.value["name"]
   type  = var.paramlists[each.key].type
   value = var.paramlists[each.key].val
 }
@@ -20,3 +20,11 @@ variable "paramlists" {
 # output "printvalue" {
 #  value = var.paramlists["catalogue"].name
 #}
+# aws ssm describe-parameters | jq '.Parameters[].Name' | sed 's/"//g' > /tmp/ssm.txt
+# Get the list of all names of AWS SSM parameters.Remove double quotes from the list of all names.
+# store the list of all ssm parameter names in the file ssm.txt
+
+//for i in `cat /tmp/ssm.txt`; do echo $i; aws ssm delete-parameter --name $i; done;
+# delete the ssm parameters listed in the file ssm.txt. "file location" used in for loop consists
+# of the special character "`".In the keyboard,This character is present along with the "~" symbol.
+
