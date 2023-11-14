@@ -1,10 +1,11 @@
 # create ssm parameters in AWS management console
 
 resource "aws_ssm_parameter" "ssmparams" {
-  count = length(var.paramlists)
-  name  = var.paramlists[var.paramlists[0]].name
-  type  = var.paramlists[var.paramlists[0]].type
-  value = var.paramlists[var.paramlists[0]].val
+  #count = length(var.paramlists)
+  for_each = var.paramlists
+  name  = var.paramlists[each.key].name
+  type  = var.paramlists[each.key].type
+  value = var.paramlists[each.key].val
 }
 
 variable "paramlists" {
@@ -17,5 +18,5 @@ variable "paramlists" {
 }
 
 output "printvalue" {
-  value = var.paramlists[var.paramlists[0]].name
+  value = var.paramlists[var.paramlists["catalogue"]].name
 }
