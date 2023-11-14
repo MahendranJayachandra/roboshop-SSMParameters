@@ -1,7 +1,7 @@
 # create ssm parameters in AWS management console
 
 resource "aws_ssm_parameter" "ssmparams" {
-  count = length(var.paramlists)-1
+  count = length(var.paramlists)
   name  = var.paramlists["name"]
   type  = var.paramlists["type"]
   value = var.paramlists["value"]
