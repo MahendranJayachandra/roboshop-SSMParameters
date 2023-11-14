@@ -18,5 +18,5 @@ variable "paramlists" {
 }
 
 output "printvalue" {
-  value = var.paramlists[var.paramlists["catalogue"]].name
+  value = var.paramlists["catalogue"].name
 }
