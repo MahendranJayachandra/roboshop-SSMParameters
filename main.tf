@@ -11,6 +11,7 @@ resource "aws_ssm_parameter" "ssmparams" {
 variable "paramlists" {
     default = { 
         catalogue = { name = "/roboshop/dev/frontend/catalogue-dev", type = "String", val = "http://catalogue-dev.learnskill.fun:8080/"},
+        cart = { name = "/roboshop/dev/frontend/cart-dev", type = "String", val = "http://cart-dev.learnskill.fun:8080/"},
         user = { name = "/roboshop/dev/frontend/user-dev", type = "String", val = "http://user-dev.learnskill.fun:8080/" },
         shipping = { name = "/roboshop/dev/frontend/shipping-dev", type = "String", val = "http://shipping-dev.learnskill.fun:8080/" },
         payment = { name = "/roboshop/dev/frontend/payment-dev", type = "String", val = "http://payment-dev.learnskill.fun:8080/" }
